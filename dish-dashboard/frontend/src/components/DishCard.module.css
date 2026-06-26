@@ -1,0 +1,146 @@
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.published {
+  border-color: rgba(34, 197, 94, 0.25);
+}
+
+.unpublished {
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.04);
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.badgePublished {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--published);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.badgeUnpublished {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--unpublished);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.id {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 1.3;
+  flex: 1;
+}
+
+.btn {
+  margin-top: 12px;
+  padding: 9px 0;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btnUnpublish {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--unpublished);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.btnUnpublish:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.22);
+}
+
+.btnPublish {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--published);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.btnPublish:hover:not(:disabled) {
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
